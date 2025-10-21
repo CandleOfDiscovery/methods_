@@ -2,17 +2,12 @@
 
 - **Problem:** The GA used **Euclidean distances** instead of the **ATT pseudo-Euclidean metric** defined in TSPLIB.  
 
-- **Incorrect distance (used before):**
-\[
-d_{EUC}(i,j) = \sqrt{(x_i - x_j)^2 + (y_i - y_j)^2}
-\]
+- **Incorrect distance (used before):**  
+`d_EUC(i,j) = sqrt((x_i - x_j)^2 + (y_i - y_j)^2)`
 
-- **Correct ATT distance:**
-\[
-r_{ij} = \sqrt{\frac{(x_i - x_j)^2 + (y_i - y_j)^2}{10}}, \quad
-d_{ATT}(i,j) = \text{int}(r_{ij} + 0.5)
-\]
-
+- **Correct ATT distance:**  
+`r_ij = sqrt(((x_i - x_j)^2 + (y_i - y_j)^2)/10)`  
+`d_ATT(i,j) = int(r_ij + 0.5)`
 - **Effect:**  
   - The GA optimized the wrong fitness:
   \[
